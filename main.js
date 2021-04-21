@@ -42,11 +42,11 @@ function addQuestionButtons(){
         // Loop through each dollar amount..
         for (const dollarAmount of DOLLAR_AMOUNTS) {
     
-            // Create a new item
-            const item = $(`<div class="item">${dollarAmount}</div>`);
+            // Create a new button
+            const valueButton = $(`<button class="value-select">${dollarAmount}</button>`);
     
             // Add item to column
-            column.append(item);
+            column.append(valueButton);
         }
     
         // Add column to container
@@ -60,7 +60,7 @@ function addQuestionButtons(){
     
     
     // Get all buttons
-    const jqueryButtons = $('.item');
+    const jqueryButtons = $('.value-select');
     
     // Loop through the bututons
     for (const rawButton of jqueryButtons) {
