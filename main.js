@@ -3,14 +3,11 @@
  *************/
 
 const questionArea = document.getElementById("question-area");
-const testButton = document.getElementById("test-button");
 
 /******************
  * EVENT LISTENER *
  ******************/
 
-questionArea.addEventListener("click", testSelection);
-testButton.addEventListener("click", testClick);
 
 /********************
  * HELPER FUNCTIONS *
