@@ -3,6 +3,7 @@
  *************/
 
 const questionArea = document.getElementById("question-area");
+const askQuestion = document.getElementById("answer");
 
 /******************
  * EVENT LISTENER *
@@ -21,9 +22,9 @@ function testClick() {
 }
 
 function getRandomInt(max) {
-    randomNum = Math.floor(Math.random() * max)
-    return randomNum;
-  }
+	randomNum = Math.floor(Math.random() * max);
+	return randomNum;
+}
 
 /******************************************
  * CREATING A GRID OF ELEMENTS ON THE DOM *
@@ -68,24 +69,24 @@ for (const rawButton of jqueryButtons) {
 	button.click(function () {
 		// Finally, log the buttons text
 		console.log(button.text());
-        console.log("Num of Qs: ", QUESTIONS.length)
-        
-        QsMatchValue = 0
-        for (question of QUESTIONS){
-            if (question.value === button.text()){
-                QsMatchValue++
-            }
-        }
-        console.log("Num of Value Qs:", QsMatchValue)
+		console.log("Num of Qs: ", QUESTIONS.length);
 
-        QsOfValue = []
-        for (question of QUESTIONS){
-            if (question.value === button.text()){
-                QsOfValue.push(question)
-            }
-        }
-        getRandomInt(QsOfValue.length)
-        console.log("Q of Value: ", QsOfValue[randomNum].question)
-        
+		QsMatchValue = 0;
+		for (question of QUESTIONS) {
+			if (question.value === button.text()) {
+				QsMatchValue++;
+			}
+		}
+		console.log("Num of Value Qs:", QsMatchValue);
+
+		QsOfValue = [];
+		for (question of QUESTIONS) {
+			if (question.value === button.text()) {
+				QsOfValue.push(question);
+			}
+		}
+		getRandomInt(QsOfValue.length);
+		console.log("Q of Value: ", QsOfValue[randomNum].question);
+		//askQuestion.innerText = `${QsOfValue[randomNum].question`
 	});
 }
