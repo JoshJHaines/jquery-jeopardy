@@ -86,7 +86,7 @@ for (const rawButton of jqueryButtons) {
 			}
 		}
 		getRandomInt(QsOfValue.length);
-		console.log("Q of Value: ", QsOfValue[randomNum].question);
-		//askQuestion.innerText = `${QsOfValue[randomNum].question`
+		console.log("Q of Value: ", QsOfValue[randomNum]);
+		askQuestion.innerText = `${QsOfValue[randomNum].question}`
 	});
 }
