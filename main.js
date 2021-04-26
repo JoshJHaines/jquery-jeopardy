@@ -84,3 +84,7 @@ for (const rawButton of jqueryButtons) {
 		askQuestion.innerText = `${selectedQuestionObj.question}`;
 	});
 }
+
+//next steps..
+//on click... loop through all questions to fine the one with the current question
+//compare input answer to answer in question obj
