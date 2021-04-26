@@ -9,22 +9,6 @@ const askQuestion = document.getElementById("answer");
 /******************
  * EVENT score *
  ******************/
-let score = 0;
-
-// Check local storage for a previous score
-const storedScore = localStorage.getItem('score');
-if (storedScore !== null) {
-    score = parseInt(storedScore);   
-}
-
-// Add one to score
-//score++;
-
-// Store the new score
-localStorage.setItem('score', score);
-
-// Display score on the DOM
-document.querySelector('h3').innerText = `YOUR SCORE: ${score}`;
 
 /********************
  * HELPER FUNCTIONS *
@@ -52,6 +36,7 @@ function buildListOfQuestion(value) {
 	}
 	return QsOfValue;
 }
+
 
 /******************************************
  * CREATING A GRID OF ELEMENTS ON THE DOM *
@@ -105,26 +90,38 @@ for (const rawButton of jqueryButtons) {
 const submitButton = $("#submit");
 //const playerAnswer = $("#playerAnswer")
 submitButton.click(function () {
-    playerAnswer = document.getElementById('playerAnswer').value
+	playerAnswer = document.getElementById("playerAnswer").value;
 	console.log("click");
-	currentQuestion = []
+	currentQuestion = [];
 	for (question of QUESTIONS) {
-        if (question.question == askQuestion.innerText) {
-            currentQuestion.push(question);
+		if (question.question == askQuestion.innerText) {
+			currentQuestion.push(question);
 		}
 	}
-    console.log("Current Q Obj: ", currentQuestion);
-    console.log("Player Answer: ", playerAnswer)
+	console.log("Current Q Obj: ", currentQuestion);
+	console.log("Player Answer: ", playerAnswer);
 
-    if (playerAnswer === currentQuestion[0].answer){
-        console.log("Answer Correct");
-        score += currentQuestion[0].value
-        console.log(score)
-    } else {
-        console.log("Keep trying")
-    }
+	let score = 0;
+
+	// Check local storage for a previous score
+	const storedScore = localStorage.getItem("score");
+	if (storedScore !== null) {
+		score = parseInt(storedScore);
+	}
+	// Store the new score
+	localStorage.setItem("score", score);
+
+	// Display score on the DOM
+	
+
+	if (playerAnswer === currentQuestion[0].answer) {
+		console.log("Answer Correct");
+		score += currentQuestion[0].value;
+		console.log(score);
+        askQuestion.innerText = `CORRECT, the board is yours`
+        document.querySelector("h3").innerText = `YOUR SCORE: ${score}`;
+	} else {
+		console.log("Keep trying");
+        askQuestion.innerText = `Sorry, the correct answer is: ${currentQuestion[0].answer}`;
+	}
 });
-
-//next steps..
-//on click... loop through all questions to fine the one with the current question
-//compare input answer to answer in question obj
