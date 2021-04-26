@@ -10,7 +10,6 @@ const submitButton = document.getElementById("submit");
  * EVENT LISTENER *
  ******************/
 
-
 /********************
  * HELPER FUNCTIONS *
  ********************/
@@ -87,9 +86,9 @@ for (const rawButton of jqueryButtons) {
 	});
 }
 
-submitButton.click(function(){
-    console.log("click")
-})
+submitButton.click(function () {
+	console.log("click");
+});
 
 //next steps..
 //on click... loop through all questions to fine the one with the current question
