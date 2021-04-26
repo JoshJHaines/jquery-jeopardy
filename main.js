@@ -87,6 +87,7 @@ for (const rawButton of jqueryButtons) {
 }
 
 const submitButton = $("#submit");
+const playerAnswer = $("#playerAnswer")
 submitButton.click(function () {
 	console.log("click");
 	currentQuestion = []
@@ -96,6 +97,7 @@ submitButton.click(function () {
 		}
 	}
     console.log("Current Q Obj: ", currentQuestion);
+    console.log("Player Answer: ", playerAnswer.value)
 });
 
 //next steps..
