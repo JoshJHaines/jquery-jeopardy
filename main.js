@@ -63,5 +63,23 @@ for (const rawButton of jqueryButtons) {
 	button.click(function () {
 		// Finally, log the buttons text
 		console.log(button.text());
+        console.log("Num of Qs: ", QUESTIONS.length)
+        
+        QsMatchValue = 0
+        for (question of QUESTIONS){
+            if (question.value === button.text()){
+                QsMatchValue++
+            }
+        }
+        console.log("Num of Value Qs:", QsMatchValue)
+
+        QsOfValue = []
+        for (question of QUESTIONS){
+            if (question.value === button.text()){
+                QsOfValue.push(question)
+            }
+        }
+        console.log("Q of Value: ", QsOfValue[0].question)
+        
 	});
 }
