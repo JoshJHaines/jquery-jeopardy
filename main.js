@@ -7,8 +7,24 @@ const askQuestion = document.getElementById("answer");
 //const submitButton = document.getElementById("submit");
 
 /******************
- * EVENT LISTENER *
+ * EVENT score *
  ******************/
+let score = 0;
+
+// Check local storage for a previous score
+const storedScore = localStorage.getItem('score');
+if (storedScore !== null) {
+    score = parseInt(storedScore);   
+}
+
+// Add one to score
+//score++;
+
+// Store the new score
+localStorage.setItem('score', score);
+
+// Display score on the DOM
+document.querySelector('h3').innerText = `YOUR SCORE: ${score}`;
 
 /********************
  * HELPER FUNCTIONS *
@@ -101,7 +117,9 @@ submitButton.click(function () {
     console.log("Player Answer: ", playerAnswer)
 
     if (playerAnswer === currentQuestion[0].answer){
-        console.log("Answer Correct")
+        console.log("Answer Correct");
+        score += currentQuestion[0].value
+        console.log(score)
     } else {
         console.log("Keep trying")
     }
