@@ -4,7 +4,7 @@
 
 const questionArea = document.getElementById("question-area");
 const askQuestion = document.getElementById("answer");
-const submitButton = document.getElementById("submit");
+//const submitButton = document.getElementById("submit");
 
 /******************
  * EVENT LISTENER *
@@ -86,8 +86,16 @@ for (const rawButton of jqueryButtons) {
 	});
 }
 
+const submitButton = $("#submit");
 submitButton.click(function () {
 	console.log("click");
+	currentQuestion = []
+	for (question of QUESTIONS) {
+        if (question.question == askQuestion.innerText) {
+            currentQuestion.push(question);
+		}
+	}
+    console.log("Current Q Obj: ", currentQuestion);
 });
 
 //next steps..
