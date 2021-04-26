@@ -20,6 +20,11 @@ function testClick() {
 	console.log("The button was clicked");
 }
 
+function getRandomInt(max) {
+    randomNum = Math.floor(Math.random() * max)
+    return randomNum;
+  }
+
 /******************************************
  * CREATING A GRID OF ELEMENTS ON THE DOM *
  ******************************************/
@@ -79,7 +84,8 @@ for (const rawButton of jqueryButtons) {
                 QsOfValue.push(question)
             }
         }
-        console.log("Q of Value: ", QsOfValue[0].question)
+        getRandomInt(QsOfValue.length)
+        console.log("Q of Value: ", QsOfValue[randomNum].question)
         
 	});
 }
