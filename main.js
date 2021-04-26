@@ -87,8 +87,9 @@ for (const rawButton of jqueryButtons) {
 }
 
 const submitButton = $("#submit");
-const playerAnswer = $("#playerAnswer")
+//const playerAnswer = $("#playerAnswer")
 submitButton.click(function () {
+    playerAnswer = document.getElementById('playerAnswer').value
 	console.log("click");
 	currentQuestion = []
 	for (question of QUESTIONS) {
@@ -97,7 +98,13 @@ submitButton.click(function () {
 		}
 	}
     console.log("Current Q Obj: ", currentQuestion);
-    console.log("Player Answer: ", playerAnswer.value)
+    console.log("Player Answer: ", playerAnswer)
+
+    if (playerAnswer === currentQuestion[0].answer){
+        console.log("Answer Correct")
+    } else {
+        console.log("Keep trying")
+    }
 });
 
 //next steps..
